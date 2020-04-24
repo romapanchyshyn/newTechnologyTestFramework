@@ -17,7 +17,6 @@ public class BasicTest {
 
     @BeforeMethod(description = "Open home page")
     public void tirUp(){
-        open(PropertyConfigurationUtils.getPropertyFromFile("base.url"));
     }
 
     @AfterTest

@@ -1,6 +1,9 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import org.hamcrest.core.IsNull;
+
+import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -12,7 +15,7 @@ public class RoulettePage {
 
 
     public void findColorForBet() {
-        this.winingColor = $$(String.format("font[color ='%s']", ColorEnum.BLACK)).size() >= $$(String.format("font[color ='%s']", ColorEnum.RED)).size() ? ColorEnum.BLACK.getColorName() : ColorEnum.RED.getColorName();
+        this.winingColor = $$(String.format("font[color ='%s']", ColorEnum.BLACK)).size() >= $$(String.format("font[color ='%s']", ColorEnum.RED)).size() ? ColorEnum.RED.getColorName() : ColorEnum.BLACK.getColorName();
     }
 
     public void userClickOnGamesHistoryLink(){
@@ -24,6 +27,15 @@ public class RoulettePage {
         $(String.format("[title = '%s']", winingColor)).click();
         betCostField.val(betCost);
         submitBet.click();
+    }
+
+    @Step("User makes bet {betCost} on {winingColor} color")
+    public void userMakesBet(String betCost, String color){
+        if(!Objects.isNull(color)) {
+            $(String.format("[title = '%s']", color)).click();
+            betCostField.val(betCost);
+            submitBet.click();
+        }
     }
 
     @Step("Assert that bet is created")
