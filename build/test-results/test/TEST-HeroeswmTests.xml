@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="HeroeswmTests" tests="2" skipped="0" failures="1" errors="0" timestamp="2020-04-24T07:55:41" hostname="EPUALVIW1941" time="6.705">
+  <properties/>
+  <testcase name="userAbleToBetInRoulette" classname="HeroeswmTests" time="4.192"/>
+  <testcase name="userEnableToLoginPositiveTestCase" classname="HeroeswmTests" time="6.848">
+    <failure message="Element not found {By.xpath: //b[text() = 'Shedon']}&#13;&#10;Expected: visible&#13;&#10;Screenshot: file:/D:/testGradle/build/reports/tests/1587714946921.0.png&#13;&#10;Page source: file:/D:/testGradle/build/reports/tests/1587714946921.0.html&#13;&#10;Timeout: 4 s.&#13;&#10;Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//b[text() = 'Shedon']&quot;}" type="com.codeborne.selenide.ex.ElementNotFound">Element not found {By.xpath: //b[text() = 'Shedon']}
+Expected: visible
+Screenshot: file:/D:/testGradle/build/reports/tests/1587714946921.0.png
+Page source: file:/D:/testGradle/build/reports/tests/1587714946921.0.html
+Timeout: 4 s.
+Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//b[text() = 'Shedon']&quot;}
+	at com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:37)
+	at com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:100)
+	at com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:65)
+	at com.codeborne.selenide.commands.Should.execute(Should.java:24)
+	at com.codeborne.selenide.commands.Should.execute(Should.java:10)
+	at com.codeborne.selenide.commands.Commands.execute(Commands.java:148)
+	at com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:100)
+	at com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:66)
+	at com.sun.proxy.$Proxy9.shouldBe(Unknown Source)
+	at LoginPage.assertUserLoggedIn(LoginPage.java:26)
+	at HeroeswmTests.userEnableToLoginPositiveTestCase(HeroeswmTests.java:11)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//b[text() = 'Shedon']&quot;}
+  (Session info: chrome=81.0.4044.113)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'EPUALVIW1941', ip: '192.168.31.185', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 81.0.4044.113, chrome: {chromedriverVersion: 81.0.4044.69 (6813546031a4b..., userDataDir: C:\Users\ROMAN_~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:61364}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: d57ef88ebb9479f3517eeaf52d823c3f
+*** Element info: {Using=xpath, value=//b[text() = 'Shedon']}
+	at sun.reflect.GeneratedConstructorAccessor16.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:30)
+	at com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:74)
+	at com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:50)
+	... 21 more
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[[TestNG-test=Test-2] INFO com.codeborne.selenide.impl.WebDriverThreadLocalContainer - No webdriver is bound to current thread: 16 - let's create a new webdriver
+[TestNG-test=Test-1] INFO com.codeborne.selenide.impl.WebDriverThreadLocalContainer - No webdriver is bound to current thread: 15 - let's create a new webdriver
+Apr 24, 2020 10:55:34 AM java.util.prefs.WindowsPreferences <init>
+WARNING: Could not open/create prefs root node Software\JavaSoft\Prefs at root 0x80000002. Windows RegCreateKeyEx(...) returned error code 5.
+[TestNG-test=Test-2] INFO io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 81.0.4044.69 (since Google Chrome 81 is installed in your machine)
+[TestNG-test=Test-2] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\Roman_Panchyshyn\.m2\repository\webdriver\chromedriver\win32\81.0.4044.69\chromedriver.exe
+[TestNG-test=Test-1] INFO io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 81.0.4044.69 (since Google Chrome 81 is installed in your machine)
+[TestNG-test=Test-1] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\Roman_Panchyshyn\.m2\repository\webdriver\chromedriver\win32\81.0.4044.69\chromedriver.exe
+Starting ChromeDriver 81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}) on port 14644
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+Starting ChromeDriver 81.0.4044.69 (6813546031a4bc83f717a2ef7cd4ac6ec1199132-refs/branch-heads/4044@{#776}) on port 36749
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+Apr 24, 2020 10:55:40 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Apr 24, 2020 10:55:40 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+[TestNG-test=Test-2] INFO com.codeborne.selenide.webdriver.BrowserResizer - Set browser size to 1366x768
+[TestNG-test=Test-1] INFO com.codeborne.selenide.webdriver.BrowserResizer - Set browser size to 1366x768
+[TestNG-test=Test-2] INFO com.codeborne.selenide.webdriver.WebDriverFactory - BrowserName=chrome Version=81.0.4044.113 Platform=WINDOWS
+[TestNG-test=Test-1] INFO com.codeborne.selenide.webdriver.WebDriverFactory - BrowserName=chrome Version=81.0.4044.113 Platform=WINDOWS
+[TestNG-test=Test-2] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenide v. 5.11.0
+[TestNG-test=Test-1] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenide v. 5.11.0
+[TestNG-test=Test-2] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenium WebDriver v. 3.141.59 build time: 2018-11-14T08:17:03
+[TestNG-test=Test-1] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenium WebDriver v. 3.141.59 build time: 2018-11-14T08:17:03
+[TestNG-test=Test-2] INFO com.codeborne.selenide.drivercommands.CreateDriverCommand - Create webdriver in current thread 16: ChromeDriver -> ChromeDriver: chrome on WINDOWS (d57ef88ebb9479f3517eeaf52d823c3f)
+[TestNG-test=Test-1] INFO com.codeborne.selenide.drivercommands.CreateDriverCommand - Create webdriver in current thread 15: ChromeDriver -> ChromeDriver: chrome on WINDOWS (8e1a7523a1def3c73d56b04a44d39524)
+[1587714941.393][SEVERE]: Timed out receiving message from renderer: 0.100
+[1587714941.496][SEVERE]: Timed out receiving message from renderer: 0.100
+[1587714941.508][SEVERE]: Timed out receiving message from renderer: 0.100
+[1587714941.603][SEVERE]: Timed out receiving message from renderer: 0.100
+[1587714941.614][SEVERE]: Timed out receiving message from renderer: 0.100
+[1587714941.715][SEVERE]: Timed out receiving message from renderer: 0.100
+[1587714941.818][SEVERE]: Timed out receiving message from renderer: 0.100
+[1587714942.880][SEVERE]: Timed out receiving message from renderer: 0.100
+[1587714943.692][SEVERE]: Timed out receiving message from renderer: 0.100
+[TestNG-test=Test-1] ERROR io.qameta.allure.util.NamingUtils - Could not find parameter winingColor
+[1587714945.971][SEVERE]: Timed out receiving message from renderer: 0.100
+]]></system-err>
+</testsuite>

@@ -1,0 +1,58 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.8.1"
+    }
+}
+
+plugins {
+    id "io.qameta.allure" version "2.8.1"
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'com.codeborne:selenide:5.11.0'
+    testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
+    testImplementation 'io.rest-assured:rest-assured:4.3.0'
+    testCompile("org.assertj:assertj-core:3.11.1")
+    compile group: 'io.qameta.allure', name: 'allure-testng', version: '2.13.1'
+    compile group: 'io.qameta.allure', name: 'allure-selenide', version: '2.13.2'
+    testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.30'
+    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.6.10'
+}
+
+
+allure {
+    version = "2.13.3"
+    autoconfigure = true
+    aspectjweaver = true
+    useTestNG {
+        version = "2.13.3"
+    }
+    downloadLink = "http://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.13.3/allure-commandline-2.13.3.zip"
+}
+
+test {
+    // enable TestNG support (default is JUnit)
+    useTestNG() {
+        suites 'src/test/testng.xml'
+    }
+}
+
