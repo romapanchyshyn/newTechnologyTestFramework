@@ -31,7 +31,7 @@ public class HeroeswmTests extends BasicTest{
         mainPage.userClicksOnRouletteOption();
         roulettePage.userMakesBet("300");
 //        roulettePage.betIsCreated();
-        refresh();
+        mainPage.userClicksOnRouletteOption();
         roulettePage.userMakesBet("300", winingColorFromStatisticSite);
 //        roulettePage.betIsCreated();
     }
