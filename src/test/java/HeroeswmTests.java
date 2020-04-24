@@ -1,4 +1,3 @@
-import com.codeborne.selenide.Selenide;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -7,12 +6,19 @@ public class HeroeswmTests extends BasicTest{
     MainPage mainPage = new MainPage();
     RoulettePage roulettePage = new RoulettePage();
     WitherHummerSite witherHummerSite = new WitherHummerSite();
-    public static String winingColorFromStatisticSite = null;
+    public static String winingColorFromStatisticSiteByDay = null;
+    public static String winingColorFromStatisticSiteByOccurs = null;
 
-    @Test(description = "Ability for system to analyze roulette statistic")
-    public void getColorStatistic(){
+//    @Test(description = "Ability for system to analyze roulette statistic")
+//    public void getColorStatisticByDay(){
+//        open(WitherHummerSite.rouletteDetailPage);
+//        winingColorFromStatisticSiteByDay = witherHummerSite.getWinColorByDayStatistic();
+//    }
+
+    @Test(description = "Ability for system to analyze roulette statistic by color occurs ")
+    public void getColorStatisticByColorOccurs(){
         open(WitherHummerSite.rouletteDetailPage);
-        winingColorFromStatisticSite = witherHummerSite.getWinColor();
+        winingColorFromStatisticSiteByOccurs = witherHummerSite.getWinColorByColorRowStatistic();
     }
 
 //    @Test(description = "Ability for user to login", threadPoolSize = 5)
@@ -22,20 +28,31 @@ public class HeroeswmTests extends BasicTest{
 //        loginPage.assertUserLoggedIn();
 //    }
 
-    @Test(dependsOnMethods ="getColorStatistic", description = "Ability for to bet in roulette", threadPoolSize = 5)
-    public void userAbleToBetInRoulette() throws InterruptedException {
+//    @Test(dependsOnMethods = "getColorStatisticByDay", description = "Ability for to bet in roulette", threadPoolSize = 5)
+//    public void userAbleToBetInRoulette() throws InterruptedException {
+//        open(PropertyConfigurationUtils.getPropertyFromFile("base.url"));
+//        loginPage.loginToSite("Shedon", "Lamak2381009");
+//        mainPage.userClicksOnRouletteOption();
+//        roulettePage.userClickOnGamesHistoryLink();
+//        roulettePage.findColorForBet();
+//        mainPage.userClicksOnRouletteOption();
+//        roulettePage.userMakesBet("300");
+//        mainPage.userClicksOnRouletteOption();
+//        roulettePage.userMakesBet("300", winingColorFromStatisticSiteByDay);
+//        roulettePage.getLastWinningSum(roulettePage.getAmountOfGoldFormElement());
+//    }
+
+    @Test(dependsOnMethods = "getColorStatisticByColorOccurs", description = "Ability for to bet in roulette by occurs", threadPoolSize = 5)
+    public void userAbleToBetInRouletteByOccurs() throws InterruptedException {
         open(PropertyConfigurationUtils.getPropertyFromFile("base.url"));
         loginPage.loginToSite("Shedon", "Lamak2381009");
         mainPage.userClicksOnRouletteOption();
-        roulettePage.userClickOnGamesHistoryLink();
-        roulettePage.findColorForBet();
+        roulettePage.userClicksOnLastGameLink();
+        int logicBetAmount = roulettePage.getBetAmount();
         mainPage.userClicksOnRouletteOption();
-        roulettePage.userMakesBet("300");
-//        roulettePage.betIsCreated();
-        mainPage.userClicksOnRouletteOption();
-        roulettePage.userMakesBet("300", winingColorFromStatisticSite);
+        roulettePage.userMakesBet(logicBetAmount, winingColorFromStatisticSiteByOccurs);
+        roulettePage.userClicksOnLastGameLink();
         roulettePage.getLastWinningSum(roulettePage.getAmountOfGoldFormElement());
-//        roulettePage.betIsCreated();
     }
 
 }

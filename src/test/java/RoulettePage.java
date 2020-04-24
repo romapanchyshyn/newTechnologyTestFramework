@@ -14,6 +14,7 @@ public class RoulettePage {
     private static final SelenideElement gamesHistory = $x("//a[text() = 'История игр']");
     private static final SelenideElement lastGame = $x("//a[text() = 'Прошлая игра']");
     private static final SelenideElement theAmountOfWinnings = $x("(//table[@class = 'wbwhite']//table//tbody//tr/td[2])[2]");
+    private static final SelenideElement theAmountOfLastBet = $x("(//table[@class = 'wbwhite']//table//tbody//tr/td[2])[1]");
     private String winingColor;
 
 
@@ -24,6 +25,11 @@ public class RoulettePage {
 
     public void userClickOnGamesHistoryLink(){
         gamesHistory.click();
+    }
+
+    @Step("User clicks on last game link")
+    public void userClicksOnLastGameLink(){
+        lastGame.click();
     }
 
     @Step("User makes bet {betCost} on {this.winingColor} color")
@@ -42,19 +48,39 @@ public class RoulettePage {
         }
     }
 
+    @Step("User makes bet {betCost} on {color} color")
+    public void userMakesBet(Integer bet, String color){
+        if(!Objects.isNull(color)) {
+            $(String.format("[title = '%s']", color)).click();
+            betCostField.val(String.valueOf(bet));
+            submitBet.click();
+        }
+    }
+
     @Step("Assert that bet is created")
     public void betIsCreated() {
         $x("//*[text() = 'Ваши ставки']//parent::center//following-sibling::table//td[child::img[@title = 'Золото']]//following-sibling::*//b").shouldHave();
     }
 
-    public String getAmountOfGoldFormElement(){
-        lastGame.click();
-        return theAmountOfWinnings.getText();
+    public Integer getAmountOfGoldFormElement(){
+        return Integer.parseInt(theAmountOfWinnings.getText().replace(",", ""));
     }
 
     @Step("In last game user win: '| {amountOfGold} |' gold")
-    public String getLastWinningSum(String amountOfGold){
+    public Integer getLastWinningSum(Integer amountOfGold){
         return amountOfGold;
+    }
+
+    public Integer getLastBet(){
+        return Integer.parseInt(theAmountOfLastBet.getText().replace(",", ""));
+    }
+
+    public int getBetAmount() {
+        int bet = 375;
+        if (getAmountOfGoldFormElement().equals(0)) {
+            bet = getLastBet() * 2;
+        }
+        return bet;
     }
 }
 
