@@ -15,7 +15,7 @@ public class HeroeswmTests extends BasicTest{
 //        winingColorFromStatisticSiteByDay = witherHummerSite.getWinColorByDayStatistic();
 //    }
 
-    @Test(description = "Ability for system to analyze roulette statistic by color occurs ")
+    @Test(retryAnalyzer = RetryAnalyzer.class, description = "Ability for system to analyze roulette statistic by color occurs ")
     public void getColorStatisticByColorOccurs(){
         open(WitherHummerSite.rouletteDetailPage);
         winingColorFromStatisticSiteByOccurs = witherHummerSite.getWinColorByColorRowStatistic();
@@ -42,7 +42,7 @@ public class HeroeswmTests extends BasicTest{
 //        roulettePage.getLastWinningSum(roulettePage.getAmountOfGoldFormElement());
 //    }
 
-    @Test(dependsOnMethods = "getColorStatisticByColorOccurs", description = "Ability for to bet in roulette by occurs", threadPoolSize = 5)
+    @Test(retryAnalyzer = RetryAnalyzer.class, dependsOnMethods = "getColorStatisticByColorOccurs", description = "Ability for to bet in roulette by occurs", threadPoolSize = 5)
     public void userAbleToBetInRouletteByOccurs() throws InterruptedException {
         open(PropertyConfigurationUtils.getPropertyFromFile("base.url"));
         loginPage.loginToSite("Shedon", "Lamak2381009");
