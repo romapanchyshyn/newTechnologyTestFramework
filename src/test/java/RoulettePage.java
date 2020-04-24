@@ -48,7 +48,7 @@ public class RoulettePage {
         }
     }
 
-    @Step("User makes bet {betCost} on {color} color")
+    @Step("User makes bet {bet} on {color} color")
     public void userMakesBet(Integer bet, String color){
         if(!Objects.isNull(color)) {
             $(String.format("[title = '%s']", color)).click();
