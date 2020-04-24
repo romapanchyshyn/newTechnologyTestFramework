@@ -12,7 +12,10 @@ public class RoulettePage {
     private static final SelenideElement betCostField = $("[name = 'bet']");
     private static final SelenideElement submitBet = $("[value='Поставить!']");
     private static final SelenideElement gamesHistory = $x("//a[text() = 'История игр']");
+    private static final SelenideElement lastGame = $x("//a[text() = 'Прошлая игра']");
+    private static final SelenideElement theAmountOfWinnings = $x("(//table[@class = 'wbwhite']//table//tbody//tr/td[2])[2]");
     private String winingColor;
+
 
 
     public void findColorForBet() {
@@ -42,6 +45,16 @@ public class RoulettePage {
     @Step("Assert that bet is created")
     public void betIsCreated() {
         $x("//*[text() = 'Ваши ставки']//parent::center//following-sibling::table//td[child::img[@title = 'Золото']]//following-sibling::*//b").shouldHave();
+    }
+
+    public String getAmountOfGoldFormElement(){
+        lastGame.click();
+        return theAmountOfWinnings.getText();
+    }
+
+    @Step("In last game user win: '| {amountOfGold} |' gold")
+    public String getLastWinningSum(String amountOfGold){
+        return amountOfGold;
     }
 }
 

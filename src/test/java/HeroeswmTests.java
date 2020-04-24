@@ -34,6 +34,7 @@ public class HeroeswmTests extends BasicTest{
 //        roulettePage.betIsCreated();
         mainPage.userClicksOnRouletteOption();
         roulettePage.userMakesBet("300", winingColorFromStatisticSite);
+        roulettePage.getLastWinningSum(roulettePage.getAmountOfGoldFormElement());
 //        roulettePage.betIsCreated();
     }
 
