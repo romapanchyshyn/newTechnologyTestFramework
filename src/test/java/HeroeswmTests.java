@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Selenide;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -33,7 +34,8 @@ public class HeroeswmTests extends BasicTest{
 //        roulettePage.betIsCreated();
         mainPage.userClicksOnRouletteOption();
         roulettePage.userMakesBet("300", winingColorFromStatisticSite);
-//        roulettePage.betIsCreated();
+        roulettePage.betIsCreated();
+        Selenide.sleep(1000);
     }
 
 }
