@@ -1,4 +1,5 @@
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.hamcrest.core.IsNull;
@@ -9,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RoulettePage {
     private static final SelenideElement betCostField = $("[name = 'bet']");
-    private static final SelenideElement submitBet = $("[type = 'submit']");
+    private static final SelenideElement submitBet = $("[value='Поставить!']");
     private static final SelenideElement gamesHistory = $x("//a[text() = 'История игр']");
     private String winingColor;
 
@@ -40,7 +41,7 @@ public class RoulettePage {
 
     @Step("Assert that bet is created")
     public void betIsCreated() {
-        $x("//*[text() = 'Ваши ставки']//parent::center//following-sibling::table//td[child::img[@title = 'Золото']]//following-sibling::*//b").shouldHave(Condition.text("300"));
+        $x("//*[text() = 'Ваши ставки']//parent::center//following-sibling::table//td[child::img[@title = 'Золото']]//following-sibling::*//b").shouldHave();
     }
 }
 
