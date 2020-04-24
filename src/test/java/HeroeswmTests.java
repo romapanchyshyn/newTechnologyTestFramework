@@ -1,4 +1,7 @@
 import org.testng.annotations.Test;
+
+import java.util.Objects;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class HeroeswmTests extends BasicTest{
@@ -43,16 +46,18 @@ public class HeroeswmTests extends BasicTest{
 //    }
 
     @Test(retryAnalyzer = RetryAnalyzer.class, dependsOnMethods = "getColorStatisticByColorOccurs", description = "Ability for to bet in roulette by occurs", threadPoolSize = 5)
-    public void userAbleToBetInRouletteByOccurs() throws InterruptedException {
-        open(PropertyConfigurationUtils.getPropertyFromFile("base.url"));
-        loginPage.loginToSite("Shedon", "Lamak2381009");
-        mainPage.userClicksOnRouletteOption();
-        roulettePage.userClicksOnLastGameLink();
-        int logicBetAmount = roulettePage.getBetAmount();
-        mainPage.userClicksOnRouletteOption();
-        roulettePage.userMakesBet(logicBetAmount, winingColorFromStatisticSiteByOccurs);
-        roulettePage.userClicksOnLastGameLink();
-        roulettePage.getLastWinningSum(roulettePage.getAmountOfGoldFormElement());
+    public void userAbleToBetInRouletteByOccurs() {
+        if(!Objects.isNull(winingColorFromStatisticSiteByOccurs)) {
+            open(PropertyConfigurationUtils.getPropertyFromFile("base.url"));
+            loginPage.loginToSite("Shedon", "Lamak2381009");
+            mainPage.userClicksOnRouletteOption();
+            roulettePage.userClicksOnLastGameLink();
+            int logicBetAmount = roulettePage.getBetAmount();
+            mainPage.userClicksOnRouletteOption();
+            roulettePage.userMakesBet(logicBetAmount, winingColorFromStatisticSiteByOccurs);
+            roulettePage.userClicksOnLastGameLink();
+            roulettePage.getLastWinningSum(roulettePage.getAmountOfGoldFormElement());
+        }
     }
 
 }
