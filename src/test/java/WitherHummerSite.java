@@ -5,7 +5,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class WitherHummerSite {
     public static final String rouletteDetailPage = "http://daily.heroeswm.ru/roulette/detal.php";
     public static final String color = "//*[@style ='background:%s']//following-sibling::td[3]";
-    public static final int EXPECTED_DIFFERENCE = 10;
+    public static final int EXPECTED_DIFFERENCE = 15;
 
     @Step("System gets wining color from statistic")
     public String getWinColor(){
