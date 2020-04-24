@@ -22,14 +22,14 @@ public class RoulettePage {
         gamesHistory.click();
     }
 
-    @Step("User makes bet {betCost} on {winingColor} color")
+    @Step("User makes bet {betCost} on {this.winingColor} color")
     public void userMakesBet(String betCost){
         $(String.format("[title = '%s']", winingColor)).click();
         betCostField.val(betCost);
         submitBet.click();
     }
 
-    @Step("User makes bet {betCost} on {winingColor} color")
+    @Step("User makes bet {betCost} on {color} color")
     public void userMakesBet(String betCost, String color){
         if(!Objects.isNull(color)) {
             $(String.format("[title = '%s']", color)).click();

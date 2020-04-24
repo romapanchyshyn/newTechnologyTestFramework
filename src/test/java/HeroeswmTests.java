@@ -22,7 +22,7 @@ public class HeroeswmTests extends BasicTest{
     }
 
     @Test(dependsOnMethods ="getColorStatistic", description = "Ability for to bet in roulette", threadPoolSize = 5)
-    public void userAbleToBetInRoulette(){
+    public void userAbleToBetInRoulette() throws InterruptedException {
         open(PropertyConfigurationUtils.getPropertyFromFile("base.url"));
         loginPage.loginToSite("Shedon", "Lamak2381009");
         mainPage.userClicksOnRouletteOption();
@@ -31,6 +31,7 @@ public class HeroeswmTests extends BasicTest{
         mainPage.userClicksOnRouletteOption();
         roulettePage.userMakesBet("300");
         roulettePage.betIsCreated();
+        wait(1000);
         roulettePage.userMakesBet("300", winingColorFromStatisticSite);
         roulettePage.betIsCreated();
     }
