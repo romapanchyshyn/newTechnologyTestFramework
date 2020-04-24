@@ -7,7 +7,7 @@ public class WitherHummerSite {
     public static final String colorByDay = "//*[@style ='background:%s']//following-sibling::td[3]";
     public static final String colorByRow = "//*[@style ='background:%s']//following-sibling::td[1]";
     public static final int EXPECTED_DIFFERENCE = 15;
-    public static final int EXPECTED_AMOUNT_OF_LOSS = 4;
+    public static final int EXPECTED_AMOUNT_OF_LOSS = 3;
 
 
     @Step("System gets wining color from day statistic")
