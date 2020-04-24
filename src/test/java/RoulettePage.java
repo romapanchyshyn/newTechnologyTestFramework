@@ -40,7 +40,7 @@ public class RoulettePage {
 
     @Step("Assert that bet is created")
     public void betIsCreated() {
-        $x("//*[text() = 'Ваши ставки']//parent::center//following-sibling::table//td[child::img[@title = 'Золото']]//following-sibling::*//b").shouldHave(Condition.text("300"));
+        $x("//*[text() = 'Ваши ставки']//parent::center//following-sibling::table//td[child::img[@title = 'Золото']]//following-sibling::*//b").shouldBe(Condition.visible);
     }
 }
 
